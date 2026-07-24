@@ -1,0 +1,643 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+
+body{
+
+font-family:
+"Helvetica Neue",
+"Arial",
+"Microsoft YaHei",
+sans-serif;
+
+color:#111;
+
+line-height:1.6;
+
+}
+
+
+
+/* =====================
+导航
+===================== */
+
+
+.top-nav{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+padding:40px 8%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+z-index:1000;
+
+transition:.4s ease;
+
+}
+
+
+.logo-small img{
+
+width:90px;
+
+filter:invert(1);
+
+}
+
+
+.top-nav nav a{
+    color: #ddd;
+    text-decoration: none;
+    margin-left: 45px;
+    font-size: 16px; /* 将字号从 13px 放大到了 16px */
+    letter-spacing: 2px; /* 字号变大后，稍微收紧一点字间距会更协调 */
+    transition: all 0.3s ease; /* 新增：让颜色切换有一个平滑的过渡动画 */
+}
+
+/* 顶部透明背景下的悬停效果 */
+.top-nav nav a:hover{
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* 新增：增加一点轻微的发光效果，让悬停更加明显 */
+}
+
+/* === 新增：当前所在版块的高亮样式 === */
+.top-nav nav a.active {
+    color: white;
+    font-weight: 600;
+}
+
+/* 当导航栏变成毛玻璃白色背景时，高亮文字需变成深色 */
+.top-nav.scrolled nav a.active {
+    color: #111;
+}
+/* ================================ */
+
+
+/* 滚动玻璃 */
+.top-nav.scrolled{
+    background: rgba(255,255,255,.75);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+}
+
+.top-nav.scrolled .logo-small img{
+    filter: none;
+}
+
+/* 滚动后（毛玻璃背景）的默认文字颜色 */
+.top-nav.scrolled nav a{
+    color: #666; /* 稍微调浅一点，为悬停留出对比空间 */
+}
+
+/* 新增：滚动后（毛玻璃背景）的专属悬停颜色 */
+.top-nav.scrolled nav a:hover{
+    color: #000; /* 悬停时变成纯黑色，对比强烈 */
+}
+
+
+
+
+/* =====================
+Hero
+===================== */
+
+
+.hero{
+
+height:100vh;
+
+position:relative;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+text-align:center;
+
+overflow:hidden;
+
+color:white;
+
+}
+
+
+
+.hero-bg{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+background:
+
+linear-gradient(
+rgba(0,0,0,.45),
+rgba(0,0,0,.45)
+),
+
+url("assets/hero.jpg");
+
+
+background-size:cover;
+
+background-position:center;
+
+
+animation:heroZoom 18s infinite alternate;
+
+}
+
+
+
+.hero-content{
+
+position:relative;
+
+z-index:2;
+
+}
+
+
+
+.hero-logo{
+
+width:90px;
+
+margin-bottom:25px;
+
+filter:brightness(0) invert(1);
+
+animation:fadeUp 1.5s ease;
+
+}
+
+
+
+.hero h1{
+
+font-size:64px;
+
+letter-spacing:12px;
+
+margin:20px 0;
+
+animation:
+fadeUp 1.5s ease .3s both;
+
+}
+
+
+
+.english{
+
+font-size:18px;
+
+letter-spacing:8px;
+
+animation:
+fadeUp 1.5s ease .6s both;
+
+}
+
+
+
+.hero p{
+
+font-size:18px;
+
+letter-spacing:3px;
+
+margin-top:30px;
+
+animation:
+fadeUp 1.5s ease .9s both;
+
+}
+
+
+
+.scroll{
+
+margin-top:80px;
+
+letter-spacing:4px;
+
+animation:
+fadeUp 1.5s ease 1.2s both;
+
+}
+
+
+
+
+@keyframes heroZoom{
+
+from{
+
+transform:scale(1);
+
+}
+
+to{
+
+transform:scale(1.08);
+
+}
+
+}
+
+
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+
+
+
+/* =====================
+项目
+===================== */
+
+.projects{
+background:#f7f7f5;
+padding:140px 8%;
+}
+
+.title{
+margin-bottom:80px;
+}
+
+.title h2{
+font-size:42px;
+font-weight:300;
+letter-spacing:8px;
+}
+
+.title p{
+margin-top:15px;
+color:#777;
+}
+
+/* 单列高级作品展示 */
+
+.project-list{
+display:block;
+}
+
+.project{
+margin-bottom:160px;
+overflow:hidden;
+}
+
+.project-number{
+font-size:14px;
+letter-spacing:5px;
+color:#888;
+margin-bottom:30px;
+}
+
+/* 
+💡 修改：滚动浮现动画现在应用于图片的父容器 `.project-image`，
+不再直接应用于 `img`。这能让动画逻辑分开。
+*/
+.project-image{
+height:650px;
+overflow:hidden;
+border-radius:0; /* 保持硬朗的设计，如果需要丝滑边缘可以加比如 8px */
+/* 安全动画初始状态（从下浮现） */
+transform:translateY(40px);
+/* 滚动进入浮现的过渡时间，可以保持 1s */
+transition:transform 1s ease;
+}
+
+/* 
+💡 核心新增：专门用于鼠标悬停放大的图片设置
+*/
+.project-image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: block;
+/* 用于鼠标悬停放大的默认状态 */
+transform: scale(1);
+/* 
+🔥 丝滑的关键在这里：
+1. 使用 0.4s 的过渡时间，比滚动动画快，更符合交互感。
+2. cubic-bezier(0.16, 1, 0.3, 1) 是一个非常平滑、优雅的贝塞尔曲线，
+移入和移出时都会应用这个丝滑的过渡。
+*/
+transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 
+💡 修改：鼠标移入效果。专门用于放大图片，不改变 translateY 状态。
+*/
+.project:hover .project-image img {
+/* 将稍微放大倍数从 1.05 增加到 1.1，让效果更清晰且依然优雅 */
+transform: scale(1.1);
+}
+
+.project-info{
+margin-top:35px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.project-info h3{
+font-size:38px;
+font-weight:300;
+letter-spacing:3px;
+/* 动画 */
+opacity:0;
+transform:translateY(30px);
+transition:all .8s ease .2s;
+}
+
+.project-info p{
+font-size:14px;
+letter-spacing:3px;
+color:#777;
+/* 动画 */
+opacity:0;
+transform:translateY(20px);
+transition:all .8s ease .4s;
+}
+
+/* 
+💡 修改：滚动出现动画，现在应用于父级图片容器 `.project-image`
+*/
+.project.show .project-image {
+transform:translateY(0);
+}
+
+.project.show h3,
+.project.show p{
+opacity:1;
+transform:translateY(0);
+}
+
+
+
+
+
+/* =====================
+AI
+===================== */
+
+
+.lab{
+
+background:#111;
+
+color:white;
+
+padding:140px 8%;
+
+}
+
+
+
+.lab h2,
+.blog h2,
+.about h2{
+
+font-size:42px;
+
+font-weight:300;
+
+letter-spacing:8px;
+
+}
+
+
+.lab p{
+
+color:#888;
+
+margin-top:15px;
+
+}
+
+
+
+
+/* =====================
+BLOG
+===================== */
+
+
+.blog{
+
+padding:140px 8%;
+
+}
+
+
+.post {
+    padding: 40px 0;
+    border-bottom: 1px solid #ddd;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* 添加顺滑的过渡效果 */
+    cursor: pointer;
+    position: relative;
+}
+
+/* 鼠标悬停时的整体效果：轻微右移、背景变灰、底边框加深 */
+.post:hover {
+    padding-left: 25px;
+    background: #fafafa;
+    border-bottom-color: #111; 
+}
+
+.post span {
+    color: #999;
+    transition: color 0.3s ease;
+}
+
+.post h3 {
+    margin-top: 15px;
+    font-size: 30px;
+    font-weight: 300;
+    transition: all 0.3s ease;
+}
+
+/* 悬停时数字和标题的颜色加深，标题产生轻微位移 */
+.post:hover span {
+    color: #111;
+}
+
+.post:hover h3 {
+    color: #333;
+    transform: translateX(5px);
+}
+
+
+
+/* =====================
+ABOUT
+===================== */
+
+
+.about{
+
+background:#f7f7f5;
+
+padding:140px 20px;
+
+text-align:center;
+
+}
+
+
+
+.about h3{
+
+margin-top:40px;
+
+font-size:48px;
+
+font-weight:300;
+
+}
+
+
+
+.about p{
+
+margin-top:20px;
+
+color:#666;
+
+}
+
+
+
+
+
+footer{
+
+background:#080808;
+
+color:#777;
+
+padding:50px;
+
+text-align:center;
+
+}
+
+
+
+
+
+
+/* =====================
+手机
+===================== */
+
+
+@media(max-width:900px){
+
+
+.top-nav{
+
+padding:25px 5%;
+
+}
+
+
+.top-nav nav a{
+
+margin-left:15px;
+
+}
+
+
+.project-image{
+
+height:400px;
+
+}
+
+
+
+.project-info{
+
+display:block;
+
+}
+
+
+
+.project-info h3{
+
+font-size:28px;
+
+margin-bottom:15px;
+
+}
+
+
+
+.hero h1{
+
+font-size:38px;
+
+}
+
+
+.title h2,
+.lab h2,
+.blog h2,
+.about h2{
+
+font-size:30px;
+
+}
+
+
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
