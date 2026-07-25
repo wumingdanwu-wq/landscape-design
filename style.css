@@ -20,75 +20,96 @@ line-height:1.6;
 }
 
 
-
 /* =====================
 导航
 ===================== */
 
-
-.top-nav{
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-
-padding:40px 8%;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-z-index:1000;
-
-transition:.4s ease;
-
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    transition: .4s ease;
 }
 
-
-.logo-small img{
-
-width:90px;
-
-filter:invert(1);
-
+.logo-small img {
+    width: 90px;
+    filter: invert(1);
 }
 
+/* 导航容器 */
+.top-nav nav {
+    display: flex;
+    align-items: center;
+}
 
-.top-nav nav a{
-    color: #ddd;
+/* 1. 链接变成上下排列的小盒子 */
+.top-nav nav a.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-decoration: none;
     margin-left: 45px;
-    font-size: 16px; /* 将字号从 13px 放大到了 16px */
-    letter-spacing: 2px; /* 字号变大后，稍微收紧一点字间距会更协调 */
-    transition: all 0.3s ease; /* 新增：让颜色切换有一个平滑的过渡动画 */
+    gap: 4px; /* 中英文的上下间距 */
+    transition: transform 0.3s ease;
 }
 
-/* 顶部透明背景下的悬停效果 */
-.top-nav nav a:hover{
+/* 2. 中文样式 */
+.nav-cn {
+    color: #ddd;
+    font-size: 16px;
+    letter-spacing: 2px;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* 3. 英文样式 */
+.nav-en {
+    color: #ddd;
+    font-size: 10px;
+    opacity: 0.5;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-family: Arial, sans-serif;
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+/* 4. 默认透明背景下的悬停交互 (微微上浮 + 亮起) */
+.top-nav nav a.nav-item:hover {
+    transform: translateY(-3px); 
+}
+
+.top-nav nav a.nav-item:hover .nav-cn {
     color: white;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* 新增：增加一点轻微的发光效果，让悬停更加明显 */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
 }
 
-/* === 新增：当前所在版块的高亮样式 === */
-.top-nav nav a.active {
+.top-nav nav a.nav-item:hover .nav-en {
+    color: white;
+    opacity: 1;
+}
+
+/* 5. 默认透明背景下的当前版块高亮 */
+.top-nav nav a.nav-item.active .nav-cn {
     color: white;
     font-weight: 600;
 }
 
-/* 当导航栏变成毛玻璃白色背景时，高亮文字需变成深色 */
-.top-nav.scrolled nav a.active {
-    color: #111;
+.top-nav nav a.nav-item.active .nav-en {
+    color: white;
+    opacity: 0.9;
 }
-/* ================================ */
 
 
-/* 滚动玻璃 */
-.top-nav.scrolled{
+/* ================================ 
+   滚动后的毛玻璃状态 
+================================ */
+
+.top-nav.scrolled {
     background: rgba(255,255,255,.75);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
@@ -97,20 +118,32 @@ filter:invert(1);
     box-shadow: 0 5px 20px rgba(0,0,0,.08);
 }
 
-.top-nav.scrolled .logo-small img{
+.top-nav.scrolled .logo-small img {
     filter: none;
 }
 
-/* 滚动后（毛玻璃背景）的默认文字颜色 */
-.top-nav.scrolled nav a{
-    color: #666; /* 稍微调浅一点，为悬停留出对比空间 */
+/* 滚动后：文字自动变深色以适应白底 */
+.top-nav.scrolled nav a.nav-item .nav-cn {
+    color: #666; 
 }
 
-/* 新增：滚动后（毛玻璃背景）的专属悬停颜色 */
-.top-nav.scrolled nav a:hover{
-    color: #000; /* 悬停时变成纯黑色，对比强烈 */
+.top-nav.scrolled nav a.nav-item .nav-en {
+    color: #888; 
 }
 
+/* 滚动后：悬停变成纯黑，且去掉发光 */
+.top-nav.scrolled nav a.nav-item:hover .nav-cn,
+.top-nav.scrolled nav a.nav-item:hover .nav-en {
+    color: #000;
+    text-shadow: none; 
+}
+
+/* 滚动后：当前高亮变成深色 */
+.top-nav.scrolled nav a.nav-item.active .nav-cn,
+.top-nav.scrolled nav a.nav-item.active .nav-en {
+    color: #111;
+    font-weight: 600;
+}
 
 
 
@@ -583,7 +616,7 @@ padding:25px 5%;
 }
 
 
-.top-nav nav a{
+.top-nav nav a.nav-item{
 
 margin-left:15px;
 
