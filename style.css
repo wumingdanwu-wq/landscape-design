@@ -141,130 +141,128 @@ color:white;
 
 
 
-.hero-bg{
+/* =====================
+Hero 背景 (Apple Pro 极简黑质感)
+===================== */
 
-position:absolute;
+.hero-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #050505; /* 极其深邃的黑灰底色 */
+    
+    /* 细线空间网格：极淡的背景坐标网格 */
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 50px 50px; 
+    background-position: center center;
+    z-index: 1;
+    overflow: hidden;
+}
 
-width:100%;
+/* 极淡的噪点纹理 */
+.hero-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.05; 
+    z-index: 2;
+    pointer-events: none;
+}
 
-height:100%;
+/* 极慢的光晕移动 */
+.hero-bg::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.04), transparent 50%);
+    z-index: 3;
+    pointer-events: none;
+    animation: slowLight 18s ease-in-out infinite alternate;
+}
 
-background:
+/* 建筑图纸的细线 (横线) */
+.arch-line-x {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    top: 50%;
+    left: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12) 50%, transparent);
+    z-index: 4;
+    animation: lineGlow 8s ease-in-out infinite alternate;
+}
 
-linear-gradient(
-rgba(0,0,0,.45),
-rgba(0,0,0,.45)
-),
+/* 建筑图纸的细线 (竖线) */
+.arch-line-y {
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    background: linear-gradient(180deg, transparent, rgba(255,255,255,0.12) 50%, transparent);
+    z-index: 4;
+    animation: lineGlow 8s ease-in-out infinite alternate-reverse;
+}
 
-url("assets/hero.jpg");
+/* 动画：光晕的缓慢呼吸与位移 */
+@keyframes slowLight {
+    0% { transform: scale(1) translate(-2%, -2%); opacity: 0.8; }
+    100% { transform: scale(1.3) translate(2%, 2%); opacity: 1; }
+}
 
-
-background-size:cover;
-
-background-position:center;
-
-
-animation:heroZoom 18s infinite alternate;
-
+/* 动画：十字线的微微闪烁 */
+@keyframes lineGlow {
+    0% { opacity: 0.2; }
+    100% { opacity: 1; }
 }
 
 
+/* =====================
+下面是你原本保留的文字和内容样式 (原封不动)
+===================== */
 
-.hero-content{
-
-position:relative;
-
-z-index:2;
-
+.hero-content {
+    position: relative;
+    z-index: 10; /* 这里我稍微把层级调高到了10，确保文字一定在网格和十字线上方 */
 }
 
-
-
-.hero-logo{
-
-width:90px;
-
-margin-bottom:25px;
-
-filter:brightness(0) invert(1);
-
-animation:fadeUp 1.5s ease;
-
+.hero-logo {
+    width: 90px;
+    margin-bottom: 25px;
+    filter: brightness(0) invert(1);
+    animation: fadeUp 1.5s ease;
 }
 
-
-
-.hero h1{
-
-font-size:64px;
-
-letter-spacing:12px;
-
-margin:20px 0;
-
-animation:
-fadeUp 1.5s ease .3s both;
-
+.hero h1 {
+    font-size: 64px;
+    letter-spacing: 12px;
+    margin: 20px 0;
+    animation: fadeUp 1.5s ease .3s both;
 }
 
-
-
-.english{
-
-font-size:18px;
-
-letter-spacing:8px;
-
-animation:
-fadeUp 1.5s ease .6s both;
-
+.english {
+    font-size: 18px;
+    letter-spacing: 8px;
+    animation: fadeUp 1.5s ease .6s both;
 }
 
-
-
-.hero p{
-
-font-size:18px;
-
-letter-spacing:3px;
-
-margin-top:30px;
-
-animation:
-fadeUp 1.5s ease .9s both;
-
+.hero p {
+    font-size: 18px;
+    letter-spacing: 3px;
+    margin-top: 30px;
+    animation: fadeUp 1.5s ease .9s both;
 }
 
-
-
-.scroll{
-
-margin-top:80px;
-
-letter-spacing:4px;
-
-animation:
-fadeUp 1.5s ease 1.2s both;
-
-}
-
-
-
-
-@keyframes heroZoom{
-
-from{
-
-transform:scale(1);
-
-}
-
-to{
-
-transform:scale(1.08);
-
-}
-
+.scroll {
+    margin-top: 80px;
+    letter-spacing: 4px;
+    animation: fadeUp 1.5s ease 1.2s both;
 }
 
 
