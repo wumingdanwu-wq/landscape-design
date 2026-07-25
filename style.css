@@ -596,7 +596,68 @@ text-align:center;
 
 }
 
+/* =====================
+   新增：AI实验室与微信二维码样式
+===================== */
 
+/* 消除超链接的默认样式（去掉下划线的蓝字） */
+a.post {
+    text-decoration: none;
+    display: block; 
+    color: inherit; 
+}
+
+/* AI 实验室因为是黑底色，需要适配暗色系悬停效果 */
+.lab .post {
+    border-bottom: 1px solid #333; 
+}
+.lab .post span {
+    color: #666;
+}
+.lab .post h3 {
+    color: #ddd;
+}
+
+/* 鼠标悬停在 AI 实验室列表上的发亮效果 */
+.lab .post:hover {
+    background: #1a1a1a; 
+    border-bottom-color: #555;
+}
+.lab .post:hover span {
+    color: #aaa;
+}
+.lab .post:hover h3 {
+    color: #fff;
+}
+
+/* 微信二维码样式 */
+.wechat-qr {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wechat-qr img {
+    width: 180px; 
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px; /* 圆角增加亲和力 */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* 柔和的卡片阴影 */
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 鼠标悬停二维码微微放大 */
+.wechat-qr img:hover {
+    transform: scale(1.05); 
+}
+
+.wechat-qr p {
+    margin-top: 15px;
+    font-size: 13px;
+    color: #888;
+    letter-spacing: 2px;
+}
 
 
 
