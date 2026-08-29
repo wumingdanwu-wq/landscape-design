@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midjourney 空间灵感模型 | 古道实验室</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@200;300;400&display=swap" rel="stylesheet">
+</head>
+<body class="sub-page-body">
+
+    <nav class="sub-nav">
+        <a href="index.html" class="back-btn">← 返回主页 / BACK</a>
+    </nav>
+
+    <header class="project-header">
+        <p class="project-meta-tag">AI CREATIVE LAB · EXPERIMENT 02</p>
+        <h1 class="project-title">Midjourney 空间灵感模型</h1>
+        <h2 class="project-subtitle">AI 视角下的非标准空间形态生成实验</h2>
+    </header>
+
+    <section class="lab-container">
+        <div class="lab-intro">
+            <h3>RESEARCH ABSTRACT / 课题深度解析</h3>
+
+            <p><strong>打破预设的合伙人：</strong>在传统的景观与空间设计中，我们的思维往往在下笔前就受限于物理重力、材料力学以及固有的软件建模习惯——SU 建模的思维惯性会不自觉地让人先画出规整的体块，再去谈变化。本实验旨在将 Midjourney 视为一位“不受现实束缚的联合设计师”，试图通过自然语言的引导，探索潜意识中那些难以用几何线条直接描绘的空间形态。</p>
+
+            <p><strong>实验方法与参数设置：</strong>这并非单纯的“一键渲染”，而是一场人机共创的博弈，具体方法是控制变量地测试不同参数组合。核心提示词结构固定为“空间类型 + 光影描述 + 主材质 + 植物状态 + 镜头语言”，在此基础上重点对比了三组参数的影响：<code>--stylize</code>（画面美化程度）分别测试了 100、250、600 三档，发现 600 以上虽然画面更“唯美”，但空间的功能逻辑会明显让位于视觉效果，出现结构上不合理但好看的“伪空间”；<code>--chaos</code>（结果多样性）在概念发散阶段设为 20-40，让同一组提示词产出差异明显的四个方向，而不是四张构图雷同的图；<code>--weird</code>（怪异度，实验性参数）则在少数几次尝试中调到 250 左右，专门用来测试模型对“反常规”空间关系的推演极限，比如让墙体和绿植的边界完全消融。当我们将“清晨冷酷的光影”“粗野主义的素混凝土”与“失控生长的热带蕨类植物”等参数进行糅合时，模型产生的所谓“幻觉 (Hallucination)”反而打破了常规的秩序——那些暧昧的灰空间、极其柔和的自然边界，在 AI 的像素推演下呈现出了极具张力的氛围感。</p>
+
+            <p><strong>局限与真实发现：</strong>需要诚实记录的是，这套方法也暴露了明显的短板。首先是空间尺度感普遍失真，AI 生成的“庭院”经常在人体尺度参照物（比如台阶踏步、座椅）上出现明显的比例错误，需要人工二次校验；其次是同一粒种子（seed）下微调提示词，画面的变化幅度并不总是可控，有时改一个形容词，整体构图会跳变得面目全非，这一点和 ControlNet 结合使用时体验会更稳定，但也失去了部分“意外惊喜”。
+            <p><strong>最终价值回归：</strong>实验证明，这些生成的灵感模型目前并不能直接转化为精确的施工图，也无法替代对场地真实条件的判断，但它们在设计初期的价值是不可估量的——以一种极高效率的方式，为项目前期的概念发散提供了一个充满随机性、充满感官刺激的庞大“情绪板 (Moodboard)”，帮助我们跳出思维舒适区。下一步计划把这套参数组合应用到具体在跟的乡村项目中，做真正带场地条件约束的对比测试。</p>
+        </div>
+
+        <div class="project-gallery">
+            <!-- 以后有 Midjourney 生成的图了，把这里的注释去掉即可 -->
+            <!-- <img src="assets/mj-test-01.jpg" loading="lazy" alt="Midjourney 空间生成图 1"> -->
+            <!-- <img src="assets/mj-test-02.jpg" loading="lazy" alt="Midjourney 空间生成图 2"> -->
+            <!-- <img src="assets/mj-test-03.jpg" loading="lazy" alt="Midjourney 空间生成图 3"> -->
+        </div>
+    </section>
+
+    <footer>
+        <span>© 2026 Zidane M. Goh</span>
+        <span class="footer-en">LANDSCAPE DESIGN</span>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

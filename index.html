@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>古道景观 | LANDSCAPE DESIGN</title>
+<meta name="description" content="一个关于空间、自然与数字创造的平台">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@200;300;400&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- 场地测量标尺 / 全站滚动进度 -->
+<div class="rail" aria-hidden="true">
+    <div class="rail__track">
+        <span class="rail__tick" style="top:0%">00</span>
+        <span class="rail__tick" style="top:25%">25</span>
+        <span class="rail__tick" style="top:50%">50</span>
+        <span class="rail__tick" style="top:75%">75</span>
+        <span class="rail__tick" style="top:100%">N</span>
+        <div class="rail__marker" id="railMarker"></div>
+    </div>
+    <div class="rail__vertical">SITE SURVEY · 古道景观</div>
+</div>
+
+<header class="top-nav" id="navbar">
+    <a href="#" class="logo-small">
+        <img src="assets/logo.png" alt="古道景观">
+    </a>
+    <nav>
+        <a href="#projects" class="nav-item">
+            <span class="nav-cn">项目</span>
+            <span class="nav-en">Projects</span>
+        </a>
+        <a href="#lab" class="nav-item">
+            <span class="nav-cn">实验</span>
+            <span class="nav-en">Lab</span>
+        </a>
+        <a href="#blog" class="nav-item">
+            <span class="nav-cn">笔记</span>
+            <span class="nav-en">Notes</span>
+        </a>
+        <a href="#about" class="nav-item">
+            <span class="nav-cn">关于</span>
+            <span class="nav-en">About</span>
+        </a>
+    </nav>
+</header>
+
+<!-- 首页 -->
+<section class="hero" id="top">
+    <div class="hero-bg" aria-hidden="true">
+        <div class="arch-line-x"></div>
+        <div class="arch-line-y"></div>
+    </div>
+    <div class="hero-coords" aria-hidden="true">
+        <span class="hero-coords__item">31.2304° N · 121.4737° E</span>
+        <span class="hero-coords__item hero-coords__item--b">PLOT REF. GD—2026</span>
+    </div>
+    <div class="hero-content">
+        <img class="hero-logo" src="assets/logo.png" alt="">
+        <p class="hero-eyebrow">Landscape · Architecture · Digital Craft</p>
+        <h1>古道景观</h1>
+        <div class="english">LANDSCAPE DESIGN</div>
+        <p class="hero-line">一个关于空间、自然与数字创造的平台</p>
+    </div>
+    <div class="scroll">向下阅览 <span>SCROLL</span></div>
+</section>
+
+<!-- 项目 -->
+<section class="projects" id="projects">
+    <div class="section-head">
+        <p class="section-head__eyebrow">Fieldwork</p>
+        <h2>精选设计项目</h2>
+        <p class="section-head__en">SELECTED PROJECTS</p>
+    </div>
+
+    <div class="project-list">
+
+        <a href="project01.html" class="project-link">
+            <article class="project">
+                <div class="project-media">
+                    <img src="assets/project01.jpg" alt="乡村公共空间设计">
+                </div>
+                <div class="project-copy">
+                    <p class="project-index">场地 · 01</p>
+                    <h3>乡村公共空间设计</h3>
+                    <p class="project-meta">RURAL LANDSCAPE · 2026</p>
+                </div>
+            </article>
+        </a>
+
+        <a href="assets/nankeng-kiln.pdf#toolbar=0" target="_blank" class="project-link project-link--reverse">
+            <article class="project project--reverse">
+                <div class="project-media">
+                    <img src="assets/project02.jpg" alt="文化遗址更新">
+                </div>
+                <div class="project-copy">
+                    <p class="project-index">场地 · 02</p>
+                    <h3>文化遗址更新</h3>
+                    <p class="project-meta">HERITAGE RENEWAL · 2026 <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></p>
+                </div>
+            </article>
+        </a>
+
+        <a href="project03.html" class="project-link">
+            <article class="project">
+                <div class="project-media">
+                    <img src="assets/project03.jpg" alt="未来景观探索">
+                </div>
+                <div class="project-copy">
+                    <p class="project-index">场地 · 03</p>
+                    <h3>未来景观探索</h3>
+                    <p class="project-meta">DIGITAL LANDSCAPE · 2026</p>
+                </div>
+            </article>
+        </a>
+
+    </div>
+</section>
+
+<!-- AI -->
+<section class="lab" id="lab">
+    <div class="section-head section-head--dark">
+        <p class="section-head__eyebrow">Experiments</p>
+        <h2>数字创造实验</h2>
+        <p class="section-head__en">AI CREATIVE LAB</p>
+    </div>
+    <div class="gallery">
+        <a href="lab01.html" class="post lab-post">
+            <span>EXP.01</span>
+            <h3>AI 辅助景观生成探索</h3>
+        </a>
+        <a href="lab02.html" class="post lab-post">
+            <span>EXP.02</span>
+            <h3>Midjourney 空间灵感模型</h3>
+        </a>
+    </div>
+</section>
+
+<!-- BLOG -->
+<section class="blog" id="blog">
+    <div class="section-head">
+        <p class="section-head__eyebrow">Field notes</p>
+        <h2>最新文章</h2>
+        <p class="section-head__en">LATEST NOTES</p>
+    </div>
+
+    <a href="note01.html" class="post">
+        <span>NOTE.01</span>
+        <h3>景观设计中的AI工作流</h3>
+    </a>
+    <a href="note02.html" class="post">
+        <span>NOTE.02</span>
+        <h3>我的数字创作笔记</h3>
+    </a>
+    <a href="note03.html" class="post">
+        <span>NOTE.03</span>
+        <h3>关于空间、自然与创造</h3>
+    </a>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+    <div class="about-grid">
+
+        <div class="about-lede">
+            <img class="about-mark" src="assets/sign.png" alt="Zidane M. Goh · Gudao Landscape Design">
+            <p class="about-role">Principal Landscape Designer</p>
+            <p class="about-quote">探索空间、自然与数字创造之间的连接。</p>
+        </div>
+
+        <div class="about-contact">
+            <div class="contact-info">
+                <div><i class="fas fa-phone-alt"></i> +1 646 481 1026</div>
+                <div><i class="fas fa-envelope"></i> <a href="mailto:gudaobei@zidane.design">gudaobei@zidane.design</a></div>
+                <div><i class="fas fa-globe"></i> <a href="https://www.maplegudaobei.site" target="_blank">www.maplegudaobei.site</a></div>
+            </div>
+
+            <div class="social-matrix">
+                <a href="#" title="Instagram"><i class="fab fa-instagram brand-instagram"></i></a>
+                <a href="#" title="YouTube"><i class="fab fa-youtube brand-youtube"></i></a>
+                <a href="#" title="TikTok"><i class="fab fa-tiktok brand-tiktok"></i></a>
+                <a href="#" title="Telegram"><i class="fab fa-telegram-plane brand-telegram"></i></a>
+            </div>
+
+            <div class="wechat-qr">
+                <img src="assets/wechat.jpg" alt="微信二维码">
+                <p>扫码添加微信探讨合作</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <span>© 2026 Zidane M. Goh</span>
+    <span class="footer-en">LANDSCAPE DESIGN</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
