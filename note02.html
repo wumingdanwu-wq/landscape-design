@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的数字创作笔记 | 古道笔记</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@200;300;400&display=swap" rel="stylesheet">
+</head>
+<body class="sub-page-body">
+
+    <nav class="sub-nav">
+        <a href="index.html" class="back-btn">← 返回主页 / BACK</a>
+    </nav>
+
+    <article class="article-container">
+        <header class="article-header">
+            <p class="project-meta-tag">NOTES · 2026/07/27</p>
+            <h1 class="project-title">我的数字创作笔记</h1>
+        </header>
+
+        <div class="article-content">
+            <p>2026年7月27日。看着这个刚刚部署到云端的独立主页，我突然想记录一下最近这段时间的感受——不只是泛泛地说“AI很厉害”，而是想留下几个具体的、真实发生过的细节。</p>
+
+            <p>作为一名长期和场地、植物、铺装打交道的景观设计师，我以前对“数字创作”的理解大多停留在 CAD 画图、SU 建模和 Lumion 渲染上。直到我真正开始把 ChatGPT、Gemini 这些工具深度接入到日常工作和这个网站的搭建过程中，才体会到那种边界被打破的感觉。</p>
+
+            <h2>打破专业的“次元壁”：一个真实项目的对比</h2>
+            <p>拿最近一个乡村河岸公共空间改造项目举例。放在以前，前期找意向、憋概念，光是收集参考图和整理场地资料，就要耗费两三天，对着空白文档发呆是常态。这一次，我把场地的基本信息（河道走向、周边村落人口结构、现状植被）整理成一段描述丢给 AI，让它从“生态修复”“乡村记忆”“低成本维护”三个不同角度各给出一版设计逻辑框架。它给出的十几个切入点里，大概三分之二是我原本会想到但需要花时间验证的常规思路，但剩下的三分之一里，有一个关于“利用现状芦苇滩做雨洪缓冲带同时作为村民劳作记忆载体”的角度，是我自己没有第一时间想到的。这不是说 AI 替我做了设计决策——最终这个角度能不能用，还是要靠我自己的专业判断去筛选、验证、落地——但它确实把“从零开始想”这个最耗时的阶段，压缩成了“从十几个选项里挑和改”，效率上的差别是实打实的。</p>
+
+            <h2>重塑工作流：从“不敢碰代码”到独立搭起这个网站</h2>
+            <p>AI 带给我的另一个改变，是给了我一种“可以自己动手”的底气。这个网站是个很好的例子——在此之前，我完全不懂前端代码，HTML 标签、CSS 样式表、域名解析、腾讯云 COS 对象存储这些名词对我来说都很陌生。这次从零搭建的过程中，我遇到过几个具体的坎：一是页面在手机端显示错位，后来通过 AI 讲解才明白是没有正确设置 viewport 和响应式布局；二是图片加载慢，学会了用 <code>loading="lazy"</code> 做懒加载；三是域名解析配置错了 CNAME 记录，导致网站一度打不开，是靠一步步排查 DNS 记录才解决的。这些问题单独拎出来看都不算难，但对一个完全没有 IT 背景的设计师来说，每一个都够卡壳大半天。有 AI 在旁边随时能问、随时能把报错信息丢过去让它解释原因，才让这件事变得可以独立完成，而不是必须外包给别人。</p>
+
+            <p>这种跨界解决问题的能力让我意识到，未来的设计工作流可能不再是死磕某一个单一软件，而是如何提出好问题、如何验证 AI 给出的答案，再决定要不要用它。这里也想诚实地说一句：AI 给的方案和代码不是每次都对，我遇到过它把某个 CSS 属性名写错、或者给的设计逻辑其实站不住脚的情况，最终能不能用，还是要靠自己的专业判断去把关，这一点没有变，也不会变。</p>
+
+            <p>时代确实在变。在这个不断加速的技术洪流里，保持好奇心、愿意去试错，可能比死守某一种特定技能更重要。这个主页，以及上面记录的几篇实验笔记，就是这段摸索过程的证明。</p>
+        </div>
+    </article>
+
+    <footer>
+        <span>© 2026 Zidane M. Goh</span>
+        <span class="footer-en">LANDSCAPE DESIGN</span>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

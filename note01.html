@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>景观设计中的AI工作流 | 古道笔记</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@200;300;400&display=swap" rel="stylesheet">
+</head>
+<body class="sub-page-body">
+
+    <nav class="sub-nav">
+        <a href="index.html" class="back-btn">← 返回主页 / BACK</a>
+    </nav>
+
+    <article class="article-container">
+        <header class="article-header">
+            <p class="project-meta-tag">NOTES · 2026/07/27</p>
+            <h1 class="project-title">景观设计中的AI工作流</h1>
+        </header>
+
+        <div class="article-content">
+            <p>人工智能（AI）正在以前所未有的速度重塑景观设计行业的工作流。回想过去的传统工作模式，从概念到落地，往往伴随着巨大的时间与硬件成本。曾经，为了一个场景，我们需要在 3DMAX 里耗费大量时间搭建场景、在各大素材网站充值寻找高精度模型；为了追求质感，不得不配置顶配的电脑，或者购买云服务器的算力进行渲染。遇到复杂的大场景，一张图渲染一个通宵是家常便饭，之后还要在 PS 里进行繁琐的后期处理。一旦甲方提出修改意见，整个流程就要推倒重来，工作量令人窒息。</p>
+            <p>如今，AI 工作流的介入，不仅将我们从重复性的体力劳动中解放出来，更极大地提升了设计效率与视觉表现力。以下不只是感受层面的总结，而是我这半年多来实际跑通的工作流细节，包括具体用到的工具、参数思路，以及踩过的坑。</p>
+
+            <h2>1. 概念初创：从关键词堆砌到“结构化提示词”</h2>
+            <p>刚开始用 Midjourney 的时候，我和大多数人一样，习惯把形容词堆在一起——“梦幻”“治愈”“高级感”，结果出图漂亮但没法用。后来摸索出一套更管用的提示词结构：<strong>场地类型 + 核心材质 + 光影时间 + 植物状态 + 镜头视角 + 参数</strong>，比如“乡村河岸公共空间, 素混凝土坐凳与卵石铺装, 清晨低角度侧光, 芦苇与野生地被半失控生长, 人视角广角, --ar 16:9 --stylize 250 --chaos 15”。其中 <code>--stylize</code> 控制画面的“设计感”强弱，数值越高越唯美但越容易失真；<code>--chaos</code> 则决定四张出图之间的差异度，概念发散阶段我会调到 15-30，让模型给出更意外的组合，而不是四张几乎一样的图。生成之后我不会直接选“最好看”的一张，而是挑“信息量最大”的——哪怕它某个角落的透视是错的，只要空间关系或材质碰撞给了我没想到的灵感，这张图就有价值。</p>
+
+            <h2>2. 图纸转化：ControlNet 不是“一键出图”，是“控制变量”</h2>
+            <p>网上很多教程把“CAD 一键出效果图”说得像魔法，但实际用起来，关键在于选对 ControlNet 的控制模型，而不是随便丢一张线稿进去就完事。我常用的几种组合：CAD 平面图或 SU 白模线框，用 <strong>Canny</strong>（边缘检测）锁住硬质铺装的几何边界，避免 AI 把路径形状画歪；手绘草图或体量关系图，用 <strong>Scribble</strong> 或 <strong>SoftEdge</strong>，允许 AI 在保留大致轮廓的前提下自由填充材质和光影；已经建好体量的 SU 模型渲染截图，则用 <strong>Depth</strong>（深度图）来保证空间进深和透视关系不跑偏。三者的控制强度（Control Weight）我一般设在 0.6-0.8 之间——太高会让画面显得死板、材质贴图感强，太低又会丢失原始线稿的空间逻辑，具体数值要根据线稿的精细程度反复试。这一步真正的价值不是省时间，而是能在方案汇报前一天晚上，把甲方临时要求的“换个角度看看”真正做出来，而不是回一句“来不及”。</p>
+
+            <h2>3. 方案深化：局部重绘的“蒙版精度”决定成败</h2>
+            <p>以往方案深化阶段最怕“局部修改”——换一种铺装材质或者更改一处雕塑，可能意味着重新渲染整张图。而在 AI 工作流中，用局部重绘（Inpainting）可以只改指定区域。但这里有个容易踩的坑：蒙版边缘如果框得太贴合物体轮廓，重绘后的材质衔接处经常出现生硬的“贴纸感”；我后来的习惯是蒙版比实际要改的区域多留出 10%-15% 的过渡带，并把重绘强度（Denoising Strength）控制在 0.5 左右，让新材质和周边环境有一个自然融合的过渡，而不是硬切边界。用这套方法，把普通草坪换成花境、把木铺装换成石材、调整一把户外座椅的款式，基本可以做到大场景光影不变、只有局部内容替换，一次迭代通常十几分钟就能出结果，而不是过去动辄几小时的整图重渲。</p>
+
+            <h2>4. 沟通降本：把“修改成本”真正压下来</h2>
+            <p>AI 带来的最大改变，是把过去“建模-渲染-后期”这套动辄以小时甚至天为单位的迭代周期，压缩到了以分钟为单位。这意味着面对甲方现场提出的修改意见，我们有机会当场出一版新的示意图，而不是只能记下来回去改。当然要说清楚一个前提：这套流程目前解决的主要是方案前期和概念表达阶段的效率问题，最终的施工图、精确的材料选样和造价核算，依然要回到专业软件和实际经验里完成，AI 生成的图不能替代这些工作，只是让沟通和决策的那部分变得更轻。技术不再是限制表达的枷锁，设计师的精力终于可以更多地回归到“空间思考”与“生态设计”本身。</p>
+        </div>
+    </article>
+
+    <footer>
+        <span>© 2026 Zidane M. Goh</span>
+        <span class="footer-en">LANDSCAPE DESIGN</span>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

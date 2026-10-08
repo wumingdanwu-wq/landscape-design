@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 辅助景观生成探索 | 古道实验室</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@200;300;400&display=swap" rel="stylesheet">
+</head>
+<body class="sub-page-body">
+
+    <nav class="sub-nav">
+        <a href="index.html" class="back-btn">← 返回主页 / BACK</a>
+    </nav>
+
+    <header class="project-header">
+        <p class="project-meta-tag">AI CREATIVE LAB · EXPERIMENT 01</p>
+        <h1 class="project-title">AI 辅助景观生成探索：新中式庭院的提示词工程</h1>
+    </header>
+
+    <section class="lab-container">
+        <div class="lab-intro">
+            <h3>RESEARCH ABSTRACT / 课题概述</h3>
+            <p>本课题旨在探索 AI 图像生成模型在乡村景观改造与公共空间设计中的实际应用边界。本次实验以“新中式禅意庭院”为命题，测试了不同提示词 (Prompt) 结构下，模型对于本土材料（如黑板岩、白砂、竹木）与光影氛围的融合表现。</p>
+            <p>通过梳理 10 组涵盖“鸟瞰布局”到“微观造景”的参数模型，本期实验室将重点拆解一套稳定可控的景观 AI 提示词语法库，展示概念方案阶段“一键生成”的颠覆性工作流。</p>
+        </div>
+
+        <div class="article-content" style="margin-top: 40px;">
+            <h2>一、 构建稳定的提示词骨架 (Prompt Formula)</h2>
+            <p>在 AI 景观生成中，随意的自然语言往往只能得到不可控的拼凑感。要生成具有专业设计感的图纸，必须建立结构化的提示词骨架。我总结的公式为：</p>
+            <p><strong>[主体视角] + [空间元素与材质] + [环境氛围] + [灯光渲染] + [出图质量]</strong></p>
+
+            <h2>二、 核心案例拆解：从全局到局部的生成推演</h2>
+            <p>以下结合本次生成的 10 组新中式庭院图纸，具体说明如何通过控制变量，实现多角度的方案推演。</p>
+
+            <h3>1. 掌控全局：鸟瞰平面布局的生成</h3>
+            <p>传统的 3DMAX 需要先建出完整的墙体和地形才能俯视截图，而在 AI 工作流中，通过特定的镜头控制词，即可一键生成逻辑清晰的平面布局。</p>
+            <blockquote>
+                <p><strong>核心提示词提取：</strong> top-down view (正俯视图), architectural layout (建筑布局), symmetrical courtyard (对称庭院), stepping stones across water (水上步石), zen garden layout (禅意花园布局).</p>
+            </blockquote>
+            <div class="project-gallery">
+                <img src="assets/9.png" alt="新中式庭院鸟瞰平面图" loading="lazy">
+            </div>
+
+            <h3>2. 框景与造景：空间透视的推敲</h3>
+            <p>新中式景观讲究“步移景异”与“框景”手法。我们利用 AI 快速推敲不同的空间围合形式。例如，下沉式卡座与水景的交融，或者月洞门内的一望松景。</p>
+            <blockquote>
+                <p><strong>核心提示词提取：</strong> sunken seating area (下沉式休息区), circular moon gate (圆形月洞门), dark wood framing (深色木框架), reflection pool (镜面水池), minimalist zen (极简禅意).</p>
+            </blockquote>
+            <div class="project-gallery">
+                <img src="assets/1.png" alt="月洞门框景" loading="lazy">
+                <img src="assets/7.png" alt="下沉式休息区" loading="lazy">
+                <img src="assets/3.png" alt="室内看室外透视" loading="lazy">
+            </div>
+
+            <h3>3. 材质碰撞与细节刻画</h3>
+            <p>在方案深化前期的意向收集中，对材质质感的传达至关重要。我们可以精准指令 AI 表现黑石跌水的粗犷、白砂枯山水的细腻，以及竹林的清幽。</p>
+            <blockquote>
+                <p><strong>核心提示词提取：</strong> black slate waterfall wall (黑色板岩跌水墙), white gravel (白砂砾), mossy rocks (长满青苔的石头), dense bamboo forest (茂密的竹林), stark contrast (强烈对比).</p>
+            </blockquote>
+            <div class="project-gallery">
+                <img src="assets/8.png" alt="黑石跌水水景" loading="lazy">
+                <img src="assets/2.png" alt="枯山水细节" loading="lazy">
+                <img src="assets/4.png" alt="白墙与竹林光影" loading="lazy">
+            </div>
+
+            <h3>4. 氛围注入：光影与尺度的魔力</h3>
+            <p>一张有说服力的效果图离不开光影的加持。加入特定的时间点与气象词汇，能瞬间提升图纸的情绪价值。同时，通过加入人物尺度（如穿着长裙的女子），可以让空间尺度感更加真实。</p>
+            <blockquote>
+                <p><strong>核心提示词提取：</strong> morning mist (晨雾), warm hidden LED lighting (温暖的隐藏式LED照明), dusk atmosphere (黄昏氛围), cinematic lighting (电影级光影), unreal engine 5 render (UE5渲染级画质).</p>
+            </blockquote>
+            <div class="project-gallery">
+                <img src="assets/5.png" alt="黄昏庭院水景" loading="lazy">
+                <img src="assets/6.png" alt="极简枯山水傍晚" loading="lazy">
+                <img src="assets/10.png" alt="带人物尺度的庭院桥景" loading="lazy">
+            </div>
+
+            <h2>三、 实验总结：工作流的重塑</h2>
+            <p>通过这组参数测试可以直观地看到，AI 并非随机生成，而是能够严格听从设计师对“材质”、“构图”、“光影”的指令。在概念初创阶段，这种利用提示词“一键出图”的能力，省去了漫长的建白模、找素材、调材质和彻夜渲染的过程。我们得以在极短的时间内，向甲方呈现出高度连贯、极具视觉冲击力的全套意向方案。</p>
+        </div>
+    </section>
+
+    <footer>
+        <span>© 2026 Zidane M. Goh</span>
+        <span class="footer-en">LANDSCAPE DESIGN</span>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
