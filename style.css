@@ -830,14 +830,23 @@ footer{
 
 .project-gallery{
     padding: 0 var(--edge) 130px calc(var(--edge) + var(--rail-w));
-    display: flex;
-    flex-direction: column;
-    gap: 44px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
 }
 
 .project-gallery img{
     width: 100%;
-    box-shadow: 0 20px 50px rgba(23,22,15,0.06);
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(23,22,15,0.08);
+    transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.project-gallery img:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 28px 60px rgba(23,22,15,0.14);
 }
 
 /* =========================================================
@@ -1013,4 +1022,17 @@ footer{
     background: #222;
     border-color: #222;
     color: #fff;
+}
+
+/* 项目图片页手机优化 */
+@media (max-width: 900px){
+    .project-gallery{
+        padding: 0 6% 70px;
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .project-gallery img{
+        border-radius: 10px;
+    }
 }
