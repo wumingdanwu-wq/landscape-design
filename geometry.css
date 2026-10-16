@@ -8,3 +8,81 @@
 .social-icon{filter:none}.youtube svg rect,.telegram svg circle{fill:#ccc}.youtube svg path,.telegram svg path{fill:#1c1c1c}.tiktok svg use{fill:#888}.tiktok svg use:last-child{fill:#ddd}
 /* Match the footer to the contact panel, including on wide screens. */
 footer{width:100%;max-width:1700px;margin-inline:auto}
+
+
+/* 联系区：博客入口 */
+.contact-blog {
+    margin-top: 24px;
+}
+
+.contact-blog a {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    min-height: 56px;
+    max-width: 100%;
+    padding: 8px 0 14px;
+    border-bottom: 1px solid #555;
+    color: #e3e3e3;
+    font-size: 22px;
+    line-height: 1.4;
+    text-decoration: none;
+    transition: color .2s, border-color .2s;
+}
+
+.blog-icon {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border: 1px solid #626262;
+    background: #252525;
+}
+
+.blog-icon svg {
+    display: block;
+    width: 25px;
+    height: 25px;
+}
+
+.blog-label {
+    letter-spacing: 2px;
+}
+
+.blog-arrow {
+    margin-left: 18px;
+    color: #aaa;
+    transition: transform .2s, color .2s;
+}
+
+.contact-blog a:hover {
+    color: #fff;
+    border-color: #aaa;
+}
+
+.contact-blog a:hover .blog-arrow {
+    color: #fff;
+    transform: translate(2px, -2px);
+}
+
+@media (max-width: 600px) {
+    .contact-blog a {
+        font-size: 19px;
+        gap: 12px;
+    }
+
+    .blog-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .blog-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .blog-arrow {
+        margin-left: 10px;
+    }
+}
